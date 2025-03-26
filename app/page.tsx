@@ -72,7 +72,7 @@ export default function Home() {
     <motion.div initial={{ opacity: 0, filter: 'blur(20px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
       transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-dvh space-y-4 max-w-lg mx-auto">
-      <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100 inline-block text-transparent bg-clip-text">
+      <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100 to-stone-500 inline-block text-transparent bg-clip-text">
         studio.47labs.io <span>•</span> Launching Soon ✨
       </span>
       <motion.div
@@ -93,7 +93,7 @@ export default function Home() {
                 placeholder="Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="border rounded-lg px-4 py-3 outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 [&:-webkit-autofill]:bg-white/5 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgba(255,255,255,0.05)_inset]"
+                className="border rounded-lg px-4 py-3 outline-none  border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 [&:-webkit-autofill]:bg-white/5 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgba(255,255,255,0.05)_inset]"
               />
               <input
                 type="email"
