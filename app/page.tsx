@@ -72,21 +72,21 @@ export default function Home() {
     <motion.div initial={{ opacity: 0, filter: 'blur(20px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
       transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-screen space-y-4 max-w-lg mx-auto">
-      <span className=" text-sm lg:text-base text-center px-4 py-2 text-white/50">
+      <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100  inline-block text-transparent bg-clip-text">
         studio.47labs.io <span>•</span> Launching Soon ✨
       </span>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-9xl lg:text-[250px] font-extrabold text-white/20"
+        className="text-8xl lg:text-[250px] font-extrabold text-white/80"
       >
         47Labs
       </motion.div>
-      <div className="flex flex-col items-center space-y-4 w-full text-sm font-light ">
+      <div className="flex flex-col items-center space-y-4 w-full text-sm font-light justify-center p-4">
         {!success ? (
           <>
-            <form className="grid grid-cols-2 gap-4 w-full">
+            <form className="grid lg:grid-cols-2 gap-4 w-full text-xs">
               <input
                 type="text"
                 name="name"
@@ -107,7 +107,7 @@ export default function Home() {
             <select
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              className="border rounded-lg px-4 py-3 outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 appearance-none"
+              className="border rounded-lg px-4 py-3 text-xs outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 appearance-none"
             >
               <option value="">Select Country</option>
               {countries.map((country) => (
@@ -129,17 +129,16 @@ export default function Home() {
                 'Join Waitlist'
               )}
             </button>
-            <span className="text-white/50 text-xs">
+            <span className="text-white/50 text-xs text-center">
               By clicking Join Waitlist, you agree to our <a href="tos" className="text-white/50 hover:text-white/100">Terms of Service</a> and <a href="pp" className="text-white/50 hover:text-white/100">Privacy Policy</a>
             </span>
           </>
         ) : (
           <div className="text-white text-center space-y-2 relative mt-4">
             <div className="h-10 w-10 bg-white blur-3xl rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"></div>
-
             <h3 className="text-xl font-bold">Thanks for joining! 🎉</h3>
             <div className="space-y-4">
-              <p className="text-white/70">Please join our community to get early access and product insights 🔥</p>
+              <p className="text-white/70 text-center">Please join our community to get early access and product insights 🔥</p>
               <div className="flex space-x-4 justify-center">
                 <a
                   href="https://x.com/fortysevenlabs"
@@ -161,7 +160,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="text-white/50 text-sm flex space-x-2 absolute bottom-4">
+      <div className="text-white/50 text-sm flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs">
         <a
           href="theory"
           className="text-white/50 hover:text-white/100"
