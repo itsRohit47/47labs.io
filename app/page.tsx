@@ -1,103 +1,198 @@
-import Image from "next/image";
+'use client'
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+
+const countries = [
+  { name: "United States", emoji: "🇺🇸" },
+  { name: "United Kingdom", emoji: "🇬🇧" },
+  { name: "Canada", emoji: "🇨🇦" },
+  { name: "Australia", emoji: "🇦🇺" },
+  { name: "India", emoji: "🇮🇳" },
+  { name: "Japan", emoji: "🇯🇵" },
+  { name: "Germany", emoji: "🇩🇪" },
+  { name: "France", emoji: "🇫🇷" },
+  { name: "Singapore", emoji: "🇸🇬" },
+  { name: "Other", emoji: "🌍" },
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [country, setCountry] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+  useEffect(() => {
+    const hasJoined = localStorage.getItem('hasJoined');
+    if (hasJoined === 'true') {
+      setSuccess(true);
+    }
+  }, []);
+
+  const isValidEmail = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const handleSubmit = async () => {
+    if (!isValidEmail(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          country
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
+
+      localStorage.setItem('hasJoined', 'true');
+      setSuccess(true);
+    } catch (error) {
+      console.error(error);
+      alert('Failed to join waitlist. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <motion.div initial={{ opacity: 0, filter: 'blur(20px)' }}
+      animate={{ opacity: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-screen space-y-4 max-w-lg mx-auto">
+      <span className=" text-sm lg:text-base text-center px-4 py-2 text-white/50">
+        studio.47labs.io <span>•</span> Launching Soon ✨
+      </span>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-9xl lg:text-[250px] font-extrabold text-white/20"
+      >
+        47Labs
+      </motion.div>
+      <div className="flex flex-col items-center space-y-4 w-full text-sm font-light ">
+        {!success ? (
+          <>
+            <form className="grid grid-cols-2 gap-4 w-full">
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="border rounded-lg px-4 py-3 outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 [&:-webkit-autofill]:bg-white/5 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgba(255,255,255,0.05)_inset]"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border rounded-lg px-4 py-3 outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 [&:-webkit-autofill]:bg-white/5 [&:-webkit-autofill]:shadow-[0_0_0_30px_rgba(255,255,255,0.05)_inset]"
+              />
+            </form>
+            <select
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className="border rounded-lg px-4 py-3 outline-none border-white/10 w-full bg-white/5 focus:bg-white/10 transition-colors duration-300 hover:bg-white/10 appearance-none"
+            >
+              <option value="">Select Country</option>
+              {countries.map((country) => (
+                <option key={country.name} value={country.name}>
+                  {country.emoji} {country.name}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={handleSubmit}
+              className="px-4 py-3 rounded-lg w-full bg-white text-black cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 hover:bg-white/90 transition-colors duration-300"
+              disabled={!email || !name || !country || loading}
+            >
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-4 w-4 border-t-4 border-black/80 border"></div>
+                </div>
+              ) : (
+                'Join Waitlist'
+              )}
+            </button>
+            <span className="text-white/50 text-xs">
+              By clicking Join Waitlist, you agree to our <a href="tos" className="text-white/50 hover:text-white/100">Terms of Service</a> and <a href="pp" className="text-white/50 hover:text-white/100">Privacy Policy</a>
+            </span>
+          </>
+        ) : (
+          <div className="text-white text-center space-y-2 relative mt-4">
+            <div className="h-10 w-10 bg-white blur-3xl rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"></div>
+
+            <h3 className="text-xl font-bold">Thanks for joining! 🎉</h3>
+            <div className="space-y-4">
+              <p className="text-white/70">Please join our community to get early access and product insights 🔥</p>
+              <div className="flex space-x-4 justify-center">
+                <a
+                  href="https://x.com/fortysevenlabs"
+                  target="_blank"
+                  className="px-6 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                >
+                  Follow on X
+                </a>
+                <a
+                  href="https://discord.gg/fortysevenlabs"
+                  target="_blank"
+                  className="px-6 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                >
+                  Join Discord
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="text-white/50 text-sm flex space-x-2 absolute bottom-4">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="theory"
+          className="text-white/50 hover:text-white/100"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          The Theory
         </a>
+        <span>•</span>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="team"
+          className="text-white/50 hover:text-white/100"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
+          The Team
         </a>
+        <span>•</span>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://x.com/fortysevenlabs"
           target="_blank"
-          rel="noopener noreferrer"
+          className="text-white/50 hover:text-white/100"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          Folllow 47Labs
         </a>
-      </footer>
-    </div>
+        <span>•</span>
+        <a
+          href="https://discord.gg/fortysevenlabs"
+          target="_blank"
+          className="text-white/50 hover:text-white/100"
+        >
+          Join the Community
+        </a>
+      </div>
+
+    </motion.div>
   );
 }
