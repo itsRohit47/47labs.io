@@ -71,8 +71,8 @@ export default function Home() {
   return (
     <motion.div initial={{ opacity: 0, filter: 'blur(20px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-screen space-y-4 max-w-lg mx-auto">
-      <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100  inline-block text-transparent bg-clip-text">
+      transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-dvh space-y-4 max-w-lg mx-auto">
+      <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100 inline-block text-transparent bg-clip-text">
         studio.47labs.io <span>•</span> Launching Soon ✨
       </span>
       <motion.div
@@ -160,7 +160,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="text-white/50 text-sm flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs">
+      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs">
         <a
           href="theory"
           className="text-white/50 hover:text-white/100"
