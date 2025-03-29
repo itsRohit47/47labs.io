@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 'use client'
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react";
@@ -160,28 +161,8 @@ export default function Home() {
         )}
       </div>
 
-      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto max-w-80">
-        <a
-          href="theory"
-          className="text-white/50 hover:text-white/100"
-        >
-          The Theory
-        </a>
-
-        <a
-          href="team"
-          className="text-white/50 hover:text-white/100"
-        >
-          The Team
-        </a>
-
-        <a
-          href="https://x.com/fortysevenlabs"
-          target="_blank"
-          className="text-white/50 hover:text-white/100"
-        >
-          Folllow 47Labs on X
-        </a>
+      <div className="text-white/50 flex space-x-4 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto max-w-80 lg:max-w-3xl">
+        
         <a
           href="https://discord.gg/fortysevenlabs"
           target="_blank"
@@ -190,11 +171,40 @@ export default function Home() {
           Join the Community
         </a>
 
+        
+
+        <a
+          href="https://x.com/fortysevenlabs"
+          target="_blank"
+          className="text-white/50 hover:text-white/100"
+        >
+          Folllow 47Labs on X
+        </a>
+
+        <a
+          href="team"
+          className="text-white/50 hover:text-white/100"
+        >
+          The Team
+        </a>
+        <a
+          href="theory"
+          className="text-white/50 hover:text-white/100"
+        >
+          The Theory
+        </a>
+
         <a
           href="/pp"
           className="text-white/50 hover:text-white/100"
         >
           Privacy Policy
+        </a>
+        <a
+          href="/"
+          className="text-white/50 hover:text-white/100"
+        >
+          Terms of Service
         </a>
       </div>
     </motion.div>
