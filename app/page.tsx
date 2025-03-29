@@ -160,29 +160,28 @@ export default function Home() {
         )}
       </div>
 
-      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto">
+      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto max-w-80">
         <a
           href="theory"
           className="text-white/50 hover:text-white/100"
         >
           The Theory
         </a>
-        <span>•</span>
+
         <a
           href="team"
           className="text-white/50 hover:text-white/100"
         >
           The Team
         </a>
-        <span>•</span>
+
         <a
           href="https://x.com/fortysevenlabs"
           target="_blank"
           className="text-white/50 hover:text-white/100"
         >
-          Folllow 47Labs
+          Folllow 47Labs on X
         </a>
-        <span>•</span>
         <a
           href="https://discord.gg/fortysevenlabs"
           target="_blank"
@@ -190,7 +189,7 @@ export default function Home() {
         >
           Join the Community
         </a>
-        <span>•</span>
+
         <a
           href="/pp"
           className="text-white/50 hover:text-white/100"

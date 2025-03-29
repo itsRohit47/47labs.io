@@ -11,7 +11,7 @@ export default function Theory() {
             <a href='/' className="text-white/50 hover:text-white/100 mb-4 text-sm">
                 Home
             </a>
-            <h1 className="text-4xl font-thin mb-8">The Theory - 47Labs.io</h1>
+            <h1 className="text-2xl lg:text-4xl font-thin mb-8">The Theory - 47Labs.io</h1>
             <section className="mb-8">
                 <img src="/theory1.png" alt="The Theory" className="w-full h-auto mb-4" />
             </section>

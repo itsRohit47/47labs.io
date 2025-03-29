@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
             <a href='/' className="text-white/50 hover:text-white/100 mb-4 text-sm">
                 Home
             </a>
-            <h1 className="text-4xl font-thin mb-8">Privacy Policy - 47Labs.io</h1>
+            <h1 className="text-2xl lg:text-4xl font-thin mb-8">Privacy Policy - 47Labs.io</h1>
             <section className="mb-8">
                 <h2 className="text-2xl font-thin mb-4">Introduction</h2>
                 <p className="text-gray-300">
