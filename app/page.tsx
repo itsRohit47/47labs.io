@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <motion.div initial={{ opacity: 0, filter: 'blur(20px)' }}
       animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-dvh space-y-4 max-w-lg mx-auto">
+      transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-dvh space-y-4 max-w-xl mx-auto">
       <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100 to-stone-500 inline-block text-transparent bg-clip-text">
         studio.47labs.io <span>•</span> Launching Soon ✨
       </span>
@@ -130,7 +130,7 @@ export default function Home() {
               )}
             </button>
             <span className="text-white/50 text-xs text-center">
-              By clicking Join Waitlist, you agree to our <a href="tos" className="text-white/50 hover:text-white/100">Terms of Service</a> and <a href="pp" className="text-white/50 hover:text-white/100">Privacy Policy</a>
+              By clicking Join Waitlist, you agree to our <a href="/pp" className="text-white/50 hover:text-white/100">Privacy Policy</a>
             </span>
           </>
         ) : (
@@ -160,7 +160,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs">
+      <div className="text-white/50 flex space-x-2 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto">
         <a
           href="theory"
           className="text-white/50 hover:text-white/100"
@@ -190,8 +190,14 @@ export default function Home() {
         >
           Join the Community
         </a>
+        <span>•</span>
+        <a
+          href="/pp"
+          className="text-white/50 hover:text-white/100"
+        >
+          Privacy Policy
+        </a>
       </div>
-
     </motion.div>
   );
 }
