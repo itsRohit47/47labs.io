@@ -164,7 +164,7 @@ export default function Home() {
       <div className="text-white/50 flex space-x-4 absolute bottom-4 flex-wrap justify-center text-xs items-center w-full mx-auto max-w-80 lg:max-w-3xl">
         
         <a
-          href="https://discord.gg/fortysevenlabs"
+          href="https://discord.gg/bb3XTpjcR3"
           target="_blank"
           className="text-white/50 hover:text-white/100"
         >
