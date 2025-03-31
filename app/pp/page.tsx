@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
                 <h2 className="text-2xl font-thin mb-4">Introduction</h2>
                 <p className="text-gray-300">
-                    47labs.io is a personal project hub. We value your privacy and aim to be transparent about any data we collect and how we use it.
+                    47labs.io is an experiment lab, where we try to execute ideas and build innovative products. We value your privacy and aim to be transparent about any data we collect and how we use it.
                 </p>
             </section>
 
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
             </section>
 
             <footer className="text-sm text-gray-300">
-                Last updated: {new Date().toLocaleDateString()}
+                Last updated: March, 2025
             </footer>
         </motion.div>
     );

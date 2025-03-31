@@ -191,7 +191,7 @@ export default function Home() {
           href="theory"
           className="text-white/50 hover:text-white/100"
         >
-          The Theory
+          About us
         </a>
 
         <a
