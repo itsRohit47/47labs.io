@@ -74,7 +74,7 @@ export default function Home() {
       animate={{ opacity: 1, filter: 'blur(0px)' }}
       transition={{ duration: 0.5 }} className="flex flex-col items-center justify-center h-dvh space-y-4 max-w-xl mx-auto">
       <span className=" text-sm lg:text-base text-center px-4 py-2 bg-gradient-to-r from-gray-100 to-stone-500 inline-block text-transparent bg-clip-text">
-        studio.47labs.io <span>•</span> Launching Soon ✨
+        <a className="hover:text-white hover:underline" href="https://picklock.47labs.io">picklock.47labs.io </a><span>•</span> Launching Soon ✨
       </span>
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -181,7 +181,7 @@ export default function Home() {
           Folllow 47Labs on X
         </a>
 
-        <a
+        {/* <a
           href="team"
           className="text-white/50 hover:text-white/100"
         >
@@ -192,9 +192,9 @@ export default function Home() {
           className="text-white/50 hover:text-white/100"
         >
           About Us
-        </a>
+        </a> */}
 
-        <a
+        {/* <a
           href="/pp"
           className="text-white/50 hover:text-white/100"
         >
@@ -205,7 +205,7 @@ export default function Home() {
           className="text-white/50 hover:text-white/100"
         >
           Terms of Service
-        </a>
+        </a> */}
       </div>
     </motion.div>
   );
