@@ -19,23 +19,20 @@ export default function Team() {
                     About 47Labs <ChevronRightIcon className="inline-block w-5 h-5" />
                 </a>
             </div>
+
             <h1 className="text-2xl lg:text-4xl font-thin w-full ">
-                47Labs is a <span className='font-serif font-semibold text-white'>Hacker Lab</span> where we build cool stuff, mostly related to solving difficult technology problems using Artificial Intelligence and software!
+                We are looking to build a team of like-minded individuals who are interested in the same topics.
             </h1>
             <p className="w-full">
-                At its core, 47Labs is a software company that focuses on building cool and innovative projects. Its essentially an experiment lab to try and solve difficult Digital/Technical problems with the porwer of software. Few topic we are interested in are as follows:
+                At the moment, its only me, you can learn more about me on my Linkedin <a className='hover:text-white' href='https://www.linkedin.com/in/itsrohitbajaj/'> @itsrohitbajaj</a>. I am a software developer by trade with just over 1 year of experience working in startups and corporate environments.
             </p>
             <p className="w-full">
-                Impact of Quantam computing and Artificial Intelligence on Security of Software, Effectiveness of AI in Software Development, AI-Powered Software Development.
+                Outside of this, i come from a bussiness family and have always wanted to own an internet bussiness that solves real world problems and for that i am building 47Labs.
             </p>
-            <Image src={"/logo.png"} alt="The Theory" className="max-w-3xl h-80 mx-auto object-cover " width={1000} height={1000} />
-            <p className="w-full">
-                We are also interested in building a community of like-minded individuals who are interested in the same topics. We believe that by working together, we can achieve more than we could alone.
+            <Image src={"/about.jpg"} alt="Darknet Diaries" className="max-w-3xl h-80 mx-auto object-cover " width={1000} height={1000} />
+            <p>
+                I am open to collaborations and partnerships with other companies and individuals who share our vision. If you are interested in working with us, please feel free to reach out to me on <a className='hover:text-white underline' href='https://x.com/fortysevenlabs'>X</a>
             </p>
-            <p className="w-full">
-                In the lab at the moment we are working on to build a product called picklock, a security platform for early stage startups. The platform is designed to help startups secure their software and data from the ground up. We are also working on a few other projects that we will be announcing soon.
-            </p>
-            <Image src={"/picklock.jpeg"} alt="The Theory" className="max-w-3xl h-auto mx-auto object-cover " width={1000} height={1000} />
             <p>
                 To be continued...
             </p>

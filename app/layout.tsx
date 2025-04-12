@@ -28,7 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-primary`}
       >
         {children}
-        <div className="text-white fixed flex space-x-4 bottom-0 right-0 pb-2 pt-4 justify-center text-xs items-center w-full mx-auto px-4 z-20 bg-gradient-to-t from-black/90 from-30% to-transparent">
+        <div className="text-white fixed flex space-x-4 bottom-0 right-0 pb-2 pt-4 justify-center text-xs items-center w-full mx-auto px-4 z-20 bg-gradient-to-t from-black/80 from-30% to-transparent">
           <a
             href="about"
             className="text-primary hover:text-white/100"
