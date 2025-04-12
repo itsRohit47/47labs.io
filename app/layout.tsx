@@ -28,31 +28,30 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-primary`}
       >
         {children}
-        <div className="fixed bottom-0 left-0 w-full h-8 blur-2xl bg-gradient-to-r from-transparent to-green-500 opacity-40"></div>
-        <div className="text-white/50 fixed flex space-x-4 bottom-4 left-1/2 -translate-x-1/2 flex-wrap justify-center text-xs items-center w-full mx-auto max-w-80 lg:max-w-3xl">
-          <a
-            href="team"
-            className="text-white/50 hover:text-white/100"
-          >
-            The Team
-          </a>
+        <div className="text-white fixed flex space-x-4 bottom-0 right-0 pb-2 pt-4 justify-center text-xs items-center w-full mx-auto px-4 z-20 bg-gradient-to-t from-black/90 from-30% to-transparent">
           <a
             href="about"
-            className="text-white/50 hover:text-white/100"
+            className="text-primary hover:text-white/100"
           >
             About 47Labs
           </a>
           <a
+            href="team"
+            className="text-primary hover:text-white/100"
+          >
+            The Team
+          </a>
+          <a
             href="https://discord.gg/bb3XTpjcR3"
             target="_blank"
-            className="text-white/50 hover:text-white/100"
+            className="text-primary hover:text-white/100"
           >
             Join the Community
           </a>
           <a
             href="https://x.com/fortysevenlabs"
             target="_blank"
-            className="text-white/50 hover:text-white/100"
+            className="text-primary hover:text-white/100"
           >
             Folllow 47Labs on X
           </a>
