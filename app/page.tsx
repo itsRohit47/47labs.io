@@ -192,7 +192,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="relative flex flex-col h-full "
         >
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <div className="flex flex-col w-full text-sm font-light">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -215,10 +215,13 @@ export default function Home() {
                   </div>
 
                   <h1 className="text-3xl lg:text-6xl dark:text-white  mt-10">
-                    <span className="font-row-2">Hacker Lab</span> <span className="dark:text-white/80 font-thin text-xl">Based in Melbourne, Australia!</span>
+                    <span className="font-row-2">Hacker Lab</span> <span className="dark:text-white/80 font-thin text-sm lg:text-xl">Based in Melbourne, Australia!</span>
                   </h1>
                   <p className="dark:text-white/70 text-black text-sm mt-4">
-                    47 labs is my (<a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a>) digital home for my projects, ideas, and experiments. I like to learn, write, share, and build things. Join the waitlist to get notified when I launch something ✨
+                    47 labs is my (<a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a>) digital home for my projects, ideas, and experiments. I like to learn, write, share, and build things. Join the waitlist to get notified when I launch something
+                  </p>
+                  <p className="dark:text-white/70 text-black text-sm mt-4">
+                    <span className="font-semibold">Note:</span> <span className="dark:text-white/70 text-black/70">website and notes not fully backed yet, check back later ✨</span>
                   </p>
                 </div>
               </div>
@@ -231,7 +234,7 @@ export default function Home() {
               className="flex flex-col space-y-4 mb-10"
             >
               <h3 className="text-xs font-medium dark:text-white/90">All Products</h3>
-              <div className="gap-3 grid grid-cols-2">
+              <div className="gap-3 grid lg:grid-cols-2">
                 {products.map((product, index) => (
                   <motion.div
                     key={product.name}
@@ -289,7 +292,11 @@ export default function Home() {
               <h3 className="text-xs font-medium dark:text-white/90">Join the waitlist</h3>
 
               {success ? (
-                <p className="text-sm mt-2">Thanks for joining the waitlist! 🎉</p>
+                <motion.p
+                  initial={{ opacity: 0, y: 4, filter: "blur(20px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5 }}
+                  className="text-sm mt-2">Thanks for joining the waitlist! 🎉</motion.p>
               ) : <div className="flex flex-col space-y-2">
                 <div className="flex items-center gap-x-3 text-sm relative">
                   <div className="flex flex-col space-y-2 w-full items-center justify-center">
@@ -310,7 +317,7 @@ export default function Home() {
                     disabled={loading2 || success}
                     className={`bg-primary dark:text-black text-white rounded-md px-4 py-2 ${loading2 || success ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/80 transition-colors text-nowrap duration-300'}`}
                   >
-                    {loading2 ? 'Loading...' : success ? 'Joined!' : 'Join the waitlist'}
+                    {loading2 ? 'API-ing' : success ? 'Joined!' : 'Join the waitlist'}
                   </button>
                 </div>
               </div>}
