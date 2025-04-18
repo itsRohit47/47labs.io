@@ -192,13 +192,13 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="relative flex flex-col h-full "
         >
-          {/* <ThemeToggle /> */}
+          <ThemeToggle />
           <div className="flex flex-col w-full text-sm font-light">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col space-y-4 mb-10"
+              className="flex flex-col space-y-4 mb-10 pt-6"
             >
               <div className="flex">
                 <div className="flex flex-col w-full">
