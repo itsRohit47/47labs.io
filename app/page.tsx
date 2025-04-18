@@ -116,18 +116,21 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col space-y-4 my-10"
+              className="flex flex-col space-y-4 mb-10"
             >
               <div className="flex">
-                <div className="flex flex-col space-y-4 w-full">
+                <div className="flex flex-col w-full">
+                  <h1 className=" text-white text-lg">
+                    <span className="">47</span><span className="text-white/70">Labs</span>
+                  </h1>
                   <p className="text-white/70">
                     Build <span>•</span> Ship <span>•</span> Scale <span>•</span> Repeat
                   </p>
-                  <h1 className="text-3xl lg:text-6xl text-white font-row-2">
-                    <span className="">Hacker Lab</span> <span className="text-white/80 font-light font-row">based in Melbourne, Australia!</span>
+                  <h1 className="text-3xl lg:text-6xl text-white font-row-2 mt-10">
+                    <span className="">Hacker Lab</span> <span className="text-white/80 font-semibold text-xl font-row">based in Melbourne, Australia!</span>
                   </h1>
-                  <p className="text-white/70">
-                    We are a team of builders and hackers, creating products that make a difference. Join us on our journey to build the future.
+                  <p className="text-white/70 text-sm mt-4">
+                    47 labs is my personal hacking lab where i try out new ideas and build products that i think can help the community. I am a solo hacker and i love to build things that can help others.
                   </p>
                 </div>
               </div>
