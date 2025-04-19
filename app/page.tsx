@@ -192,7 +192,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="relative flex flex-col h-full "
         >
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <div className="flex flex-col w-full text-sm font-light">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -291,14 +291,14 @@ export default function Home() {
             >
               <h3 className="text-xs font-medium dark:text-white/90">Join the waitlist</h3>
 
-              {success ? (
+              {!success ? (
                 <motion.p
                   initial={{ opacity: 0, y: 4, filter: "blur(20px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.5 }}
                   className="text-sm mt-2">Thanks for joining the waitlist! 🎉</motion.p>
               ) : <div className="flex flex-col space-y-2">
-                <div className="flex items-center gap-x-3 text-sm relative">
+                <div className="flex items-center gap-x-3 text-sm relative mt-2">
                   <div className="flex flex-col space-y-2 w-full items-center justify-center">
                     <input
                       type="text"
@@ -315,7 +315,7 @@ export default function Home() {
                   <button
                     onClick={handleSubmit}
                     disabled={loading2 || success}
-                    className={`bg-primary dark:text-black text-white rounded-md px-4 py-2 ${loading2 || success ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/80 transition-colors text-nowrap duration-300'}`}
+                    className={`bg-primary dark:text-black text-nowrap text-white rounded-md px-4 py-2 ${loading2 || success ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/80 transition-colors text-nowrap duration-300'}`}
                   >
                     {loading2 ? 'API-ing' : success ? 'Joined!' : 'Join the waitlist'}
                   </button>
