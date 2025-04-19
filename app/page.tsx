@@ -149,7 +149,7 @@ export default function Home() {
     { title: "CS50 - Introduction to Artificial Intelligence using Python by HarvardX", href: "https://www.notion.so/CS50AI25-Notes-1b572b3003aa80889315fd68376b26e8?pvs=4", category: "Notes" },
     { title: "SQL Notes - Good to go over these in case you have an interview or something", href: "https://www.notion.so/SQL-Notes-1d772b3003aa807cbd3aeefe1f5daa0c", category: "Notes" },
     { title: "Data Structures and Algorithms", href: "https://www.notion.so/DSA-Notes-1b272b3003aa801284d4f89374b1a60a?pvs=4", category: "Notes" },
-    { title: "Web Development - advanced stuff, a level above basics", href: "https://www.notion.so/DSA-Notes-1b272b3003aa801284d4f89374b1a60a?pvs=4", category: "Notes" },
+    { title: "Web Development - advanced stuff, a level above basics", href: "https://www.notion.so/Web-Dev-Advanced-Stuff-1c572b3003aa80eb9528c4bef3f4a6c9?pvs=4", category: "Notes" },
     { title: "This is what i would use to start from basics of development side of technology", href: "https://www.notion.so/Dev-Resources-KickStarter-0-1-1c572b3003aa80718759dfc1749abd54?pvs=4", category: "Resources" },
     { title: "List of raw ideas, captured here and there, could become products, not sure", href: "https://www.notion.so/Raw-Ideas-13f72b3003aa80349d92d4280ee3a667?pvs=4", category: "Dumps/Ideas/Tips" },
     { title: "Lessons from building my first product, trying to sell it, and avoiding costly ($$$) mistakes", href: "https://www.notion.so/Lessons-from-Building-My-First-Product-1d972b3003aa80b1bda4f04e1be3f3b9?pvs=4", category: "Dumps/Ideas/Tips" },
@@ -256,7 +256,9 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col space-y-4 mb-10"
             >
-              <h3 className="text-xs font-medium dark:text-white/90">All Products</h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-medium dark:text-white/90">All Products</h3>
+              </div>
               <div className="gap-3 grid lg:grid-cols-2">
                 {products.map((product, index) => (
                   <motion.div
@@ -353,7 +355,7 @@ export default function Home() {
             >
               <h3 className=" ">Built with ❤️ by <a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a></h3>
               <div className="flex items-center gap-x-1">
-                  <span>Last Updated on</span>
+                <span>Last Updated on</span>
                 <span className="font-semibold">{lastUpdated}</span>
               </div>
             </motion.div>
