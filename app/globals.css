@@ -83,6 +83,6 @@ body {
   }
 }
 
-button {
+button, a {
   @apply cursor-pointer;
 }

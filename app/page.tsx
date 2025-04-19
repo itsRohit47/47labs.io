@@ -5,6 +5,7 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react";
 import { HomeIcon, BoxIcon, PencilIcon, SendIcon, ArrowUpRightIcon, MoonIcon, SunIcon } from "lucide-react";
+import Logo from "./_components/logo";
 
 // Theme toggle component
 const ThemeToggle = () => {
@@ -172,18 +173,14 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 2 }}
           className="flex items-center justify-center h-full gap-x-3  "
         >
-          <div>
-            <h1 className=" dark:text-white text-lg font-semibold">
-              <span className="">47</span><span className="dark:text-white/70 text-black/70">Labs</span>
-            </h1>
-            <p className="dark:text-white/70 text-black/70">
-              Build <span>•</span> Ship <span>•</span> Scale <span>•</span> Repeat
-            </p>
+          <motion.div
+            className="flex flex-col items-center justify-center">
+            <Logo />
             <svg
               width="100"
               height="20"
               viewBox="0 0 100 20"
-              className="mt-2 animate-pulse"
+              className="mt-2"
             >
               {[...Array(10)].map((_, i) => (
                 <motion.rect
@@ -196,7 +193,7 @@ export default function Home() {
                   className="dark:text-white/70 text-black/70"
                   initial={{ scaleY: 0.5 }}
                   animate={{
-                    scaleY: [0.5, 1, 0.5],
+                    scaleY: [1, 0.5, 1],
                     transition: {
                       duration: 1,
                       repeat: Infinity,
@@ -206,7 +203,7 @@ export default function Home() {
                 />
               ))}
             </svg>
-          </div>
+          </motion.div>
         </motion.div>
       ) : (
         <motion.div
@@ -228,12 +225,7 @@ export default function Home() {
                   <div className="flex items-center gap-x-2">
                     {/* <img src={'logo.png'} alt={'logo'} className="w-12 h-12 object-cover rounded-sm" /> */}
                     <div>
-                      <h1 className=" dark:text-white text-lg font-semibold">
-                        <span className="">47</span><span className="dark:text-white/70 text-black/70">Labs</span>
-                      </h1>
-                      <p className="dark:text-white/70 text-black/70">
-                        Build <span>•</span> Ship <span>•</span> Scale <span>•</span> Repeat
-                      </p>
+                      <Logo />
                     </div>
                   </div>
 
@@ -257,9 +249,9 @@ export default function Home() {
               className="flex flex-col space-y-4 mb-10"
             >
               <div className="flex items-center justify-between">
-                <h3 className="text-xs font-medium dark:text-white/90">All Products</h3>
+                <h3 className="text-xs font-medium dark:text-white/90">All Projects</h3>
               </div>
-              <div className="gap-3 grid lg:grid-cols-2">
+              <div className="gap-4 grid lg:grid-cols-2">
                 {products.map((product, index) => (
                   <motion.div
                     key={product.name}
@@ -354,10 +346,10 @@ export default function Home() {
               className="flex items-center justify-between w-full  mb-10 text-xs dark:text-white/70 text-black/70"
             >
               <h3 className=" ">Built with ❤️ by <a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a></h3>
-              <div className="flex items-center gap-x-1">
+              <a href="/changelog" className="flex items-center gap-x-1 hover:underline transition-colors duration-300">
                 <span>Last Updated on</span>
                 <span className="font-semibold">{lastUpdated}</span>
-              </div>
+              </a>
             </motion.div>
           </div >
         </motion.div >
