@@ -37,9 +37,9 @@ export default function Changelog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col w-full h-full"
+            className="flex flex-col w-full h-full pt-6 "
         >
-            <Logo />
+            <Logo/>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

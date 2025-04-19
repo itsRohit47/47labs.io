@@ -175,7 +175,7 @@ export default function Home() {
         >
           <motion.div
             className="flex flex-col items-center justify-center">
-            <Logo />
+            <Logo centred/>
             <svg
               width="100"
               height="20"
