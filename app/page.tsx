@@ -108,6 +108,29 @@ export default function Home() {
     }
   };
 
+  // get latest commit time from github repo
+  const [lastUpdated, setLastUpdated] = useState("");
+  useEffect(() => {
+    const fetchLastUpdated = async () => {
+      try {
+        const response = await fetch("https://api.github.com/repos/itsRohit47/47labs.io/commits?per_page=1");
+        const data = await response.json();
+        const date = new Date(data[0].commit.author.date);
+        setLastUpdated(date.toLocaleString("en-AU", {
+          month: "long",
+          day: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }));
+      } catch (error) {
+        console.error("Error fetching last updated:", error);
+      }
+    };
+
+    fetchLastUpdated();
+  }, []);
+
   const links = [
     { name: "Home", icon: <HomeIcon className="h-4 w-4" strokeWidth={1.5} />, href: "/" },
     { name: "Products", icon: <BoxIcon className="h-4 w-4" strokeWidth={1.5} />, href: "/features" },
@@ -147,7 +170,7 @@ export default function Home() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           transition={{ duration: 0.5, delay: 2 }}
-          className="flex items-center justify-center h-full gap-x-3"
+          className="flex items-center justify-center h-full gap-x-3  "
         >
           <div>
             <h1 className=" dark:text-white text-lg font-semibold">
@@ -160,7 +183,7 @@ export default function Home() {
               width="100"
               height="20"
               viewBox="0 0 100 20"
-              className="mt-2"
+              className="mt-2 animate-pulse"
             >
               {[...Array(10)].map((_, i) => (
                 <motion.rect
@@ -221,7 +244,7 @@ export default function Home() {
                     47 labs is my (<a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a>) digital home for my projects, ideas, and experiments. I like to learn, write, share, and build things. Join the waitlist to get notified when I launch something
                   </p>
                   <p className="dark:text-white/70 text-black text-sm mt-4">
-                    <span className="font-semibold">Note:</span> <span className="dark:text-white/70 text-black/70">website and notes not fully backed yet, check back later ✨</span>
+                    <span className="font-semibold">Note:</span> <span className="dark:text-white/70 text-black/70">website and notes not fully baked yet, check back later ✨</span>
                   </p>
                 </div>
               </div>
@@ -265,7 +288,7 @@ export default function Home() {
                 acc[writing.category].push(writing);
                 return acc;
               }, {} as Record<string, typeof writings>)).map(([category, items], categoryIndex) => (
-                <div key={category} className="space-y-2">
+                <div key={category} className="space-y-4">
                   <h3 className="text-xs font-medium dark:text-white/90">{category}</h3>
                   {items.map((writing, index) => (
                     <motion.div
@@ -291,7 +314,7 @@ export default function Home() {
             >
               <h3 className="text-xs font-medium dark:text-white/90">Join the waitlist</h3>
 
-              {!success ? (
+              {success ? (
                 <motion.p
                   initial={{ opacity: 0, y: 4, filter: "blur(20px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -326,9 +349,13 @@ export default function Home() {
               initial={{ opacity: 0, filter: "blur(20px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 1 }}
-              className=""
+              className="flex items-center justify-between w-full  mb-10 text-xs dark:text-white/70 text-black/70"
             >
-              <h3 className=" text-xs dark:text-white/70 text-black/70 mb-32">Built with ❤️ by <a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a></h3>
+              <h3 className=" ">Built with ❤️ by <a href="https://www.linkedin.com/in/itsrohitbajaj/" target="_blank" className="dark:text-white/70 dark:hover:text-white hover:underline transition-colors duration-300">@row</a></h3>
+              <div className="flex items-center gap-x-1">
+                  <span>Last Updated on</span>
+                <span className="font-semibold">{lastUpdated}</span>
+              </div>
             </motion.div>
           </div >
         </motion.div >
